@@ -36,30 +36,38 @@ function deleteNoteFromLocalStorage(index) {
 function renderNotes() {
   const noteList = document.getElementById('noteList');
   noteList.innerHTML = '';
-  
-  const allNotes = JSON.parse(localStorage.getItem('allNotes')) || [];
-  
-  for (let i = 0; i < allNotes.length; i++) {
-    const note = allNotes[i];
+
+  for (let i = 0; i < notes.length; i++) {
+    const note = notes[i];
     const noteElement = document.createElement('div');
     noteElement.classList.add('note');
     noteElement.style.backgroundColor = note.color;
+
     const noteTextElement = document.createElement('div');
     noteTextElement.contentEditable = true;
-    noteTextElement.textContent = note.text;
+
+    // Replace newline characters with <br> elements
+    noteTextElement.innerHTML = note.text.replace(/\n/g, '<br>');
+
     noteTextElement.addEventListener('input', () => {
-      note.text = noteTextElement.textContent;
-      updateNoteInLocalStorage(i, note);
+      note.text = noteTextElement.innerHTML.replace(/<br>/g, '\n');
+      saveNotesToLocalStorage();
     });
+
     const deleteButton = document.createElement('button');
-    deleteButton.textContent = 'Sterge';
+    deleteButton.textContent = 'Delete';
     deleteButton.addEventListener('click', () => {
       deleteNote(i);
     });
+
     noteElement.appendChild(noteTextElement);
     noteElement.appendChild(deleteButton);
     noteList.appendChild(noteElement);
   }
+}
+
+function saveNotesToLocalStorage() {
+  localStorage.setItem('notes', JSON.stringify(notes));
 }
 
 renderNotes();
