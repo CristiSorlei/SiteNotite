@@ -19,11 +19,12 @@ body {
   .notes {
     background-color: rgba(0, 0, 0, 0.4);
     padding: 20px;
-    border-radius: 5px;
+    border-radius: 10px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     min-height:100vh;
     backdrop-filter: blur(10px);
     position:relative;
+    
   }
   
   .note-form {
@@ -85,6 +86,7 @@ body {
     background-color: green;
     min-width:15vh;
     min-height:15vh;
+    font-size:30px;
   }
   
   .note.yellow {
@@ -98,7 +100,6 @@ body {
     color: #ffffff; /* Alb */
     border: none;
     border-radius: 4px;
-    padding: 4px 8px;
     cursor: pointer;
   }
 
@@ -134,9 +135,16 @@ body {
     margin:20px;
   }
 
+  .note {
+    font-size: 125%;
+    border: 2px solid #e0e0e0; /* Adaugă o bordură solidă de 2px cu o culoare gri deschis */
+    border-radius: 10px; /* Rotunjirea colțurilor bordurii */
+    padding: 10px; /* Spațiu interior pentru a separa conținutul de bordură */
+    font-family:caprasimo;
+  }
   
 
-  @media (min-height: 2000px)  {
+  @media (max-width: 700px)  {
     /* Stiluri pentru telefonul cu ecran de 1080x2400px aici */
 
     body {
@@ -173,26 +181,27 @@ body {
       }
 
       .adaugareNotita {
-        width:30%;
+        width:28%;
         height:100%;
-        font-size:200%;
+        font-size:100%;
         border-radius:25px;
       }
 
       .notes {
         background-color: rgba(0, 0, 0, 0.4);
         padding: 20px;
-        border-radius: 5px;
+        border-radius: 30px;
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         min-height:100vh;
         backdrop-filter: blur(10px);
         position:relative;
         min-width:43vh;
+    
       }
 
       .Titlu {
-
-        font-size:100%;
+        padding-top:5%;
+        font-size:200%;
         font-family: impact;
         font-weight:bolder;
         
@@ -211,5 +220,28 @@ body {
         text-align:center;
         margin:20px;
         margin-left:30%
+      }
+
+      .notes {
+        background-color: rgba(0, 0, 0, 0.4);
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        min-height:100vh;
+        backdrop-filter: blur(10px);
+        position:relative;
+        min-width:100%;
+      }
+
+      .container {
+        max-width: 100%;
+        margin: 0 auto;
+        padding: 20px;
+        min-height:50%;
+      }
+
+      .note {
+
+        font-family:caprasimo;
       }
   }
