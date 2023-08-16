@@ -51,6 +51,7 @@ let notes = JSON.parse(localStorage.getItem('notes')) || [];
 
         const deleteButton = document.createElement('button');
         deleteButton.textContent = 'Delete';
+        deleteButton.classList.add('delete-button');
         deleteButton.addEventListener('click', () => {
           deleteNote(i);
         });
