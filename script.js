@@ -79,7 +79,7 @@ function addNote() {
     function deleteUnimportantNotes() {
       const currentTime = Date.now();
       const updatedNotes = notes.filter(note => {
-        if (note.importance === 'important' || currentTime - note.timestamp <= 24 * 60 * 60 * 1000) {
+        if (note.importance === 'important' || currentTime - note.timestamp <= 60 * 60 * 1000) {
           return true;
         }
         deleteNoteFromLocalStorage(notes.indexOf(note));
