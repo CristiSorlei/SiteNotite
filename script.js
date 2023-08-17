@@ -9,7 +9,7 @@ function addNote() {
   saveNoteToLocalStorage(note);
 
   if (noteImportance === 'unimportant') {
-    alert("Această notă este neimportantă și va fi ștearsă automat după 24 de ore.");
+    alert("Această notă este neimportantă și va fi ștearsă automat după o ora.");
     setTimeout(() => {
       deleteUnimportantNotes();
     }, 60 * 60 * 1000); // Delete unimportant notes after 24 hours
