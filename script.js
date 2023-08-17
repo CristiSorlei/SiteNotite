@@ -9,10 +9,10 @@ function addNote() {
   saveNoteToLocalStorage(note);
 
   if (noteImportance === 'unimportant') {
-    alert("Această notă este neimportantă și va fi ștearsă automat după o ora.");
+    alert("Această notă este neimportantă și va fi ștearsă automat după 10 minute.");
     setTimeout(() => {
       deleteUnimportantNotes();
-    }, 60 * 60 * 1000); // Delete unimportant notes after 24 hours
+    }, 10 * 60 * 1000); // Delete unimportant notes after 24 hours
   }
 
   renderNotes();
@@ -79,7 +79,7 @@ function addNote() {
     function deleteUnimportantNotes() {
       const currentTime = Date.now();
       const updatedNotes = notes.filter(note => {
-        if (note.importance === 'important' || currentTime - note.timestamp <= 60 * 60 * 1000) {
+        if (note.importance === 'important' || currentTime - note.timestamp > 10 * 60 * 1000) {
           return true;
         }
         deleteNoteFromLocalStorage(notes.indexOf(note));
