@@ -20,9 +20,9 @@ body {
     background-color: rgba(0, 0, 0, 0.4);
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.134);
     min-height:100vh;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(3px);
     position:relative;
     
   }
@@ -74,6 +74,7 @@ body {
   
   .note-text {
     margin-bottom: 10px;
+    background-color:red;
   }
   
   .note-buttons {
@@ -83,7 +84,7 @@ body {
   }
   
   .note.green {
-    background-color: green;
+    background-color: #610F7F;
     min-width:15vh;
     min-height:15vh;
     font-size:30px;
@@ -108,8 +109,8 @@ body {
     height:100%;
     font-size:120%;
     border-radius:25px;
-    color:red;
-    background-color:indigo;
+    color:#fff;
+    background-color:red;
     font-family: Cooper;
   }
 
@@ -169,13 +170,13 @@ body {
       }
 
       .note.green {
-        background-color: green;
+        background-color: #610F7F;
         min-width:5vh;
         min-height:5vh;
       }
       
       .note.yellow {
-        background-color: yellow;
+        background-color: gold;
         min-width:5vh;
         min-height:5vh;
       }
@@ -185,17 +186,20 @@ body {
         height:100%;
         font-size:100%;
         border-radius:25px;
+        background-color: #610F7F;
+        color:#fff;
       }
 
       .notes {
         background-color: rgba(0, 0, 0, 0.4);
-        padding: 20px;
+        padding-left:100 px;
         border-radius: 30px;
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         min-height:100vh;
         backdrop-filter: blur(10px);
-        position:relative;
-        min-width:43vh;
+        position:absolute;
+        max-width:auto;
+        margin-left:20%;
     
       }
 
@@ -204,6 +208,7 @@ body {
         font-size:200%;
         font-family: impact;
         font-weight:bolder;
+        color:#fff;
         
         
         
@@ -213,24 +218,27 @@ body {
         width:70%;
         min-height:5%;
         border:px;
-        background-color:rgba(0, 0, 0, 0.4);
+        background-color:#610f7f37;
         backdrop-filter: blur(10px);
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.426);
         border-radius:5px;
         text-align:center;
         margin:20px;
-        margin-left:30%
+        margin-left:17%;
+        padding:auto;
+        
       }
 
       .notes {
-        background-color: rgba(0, 0, 0, 0.4);
-        padding: 20px;
+        background-color: #610f7f95;
+        padding-left: 20px;
         border-radius: 5px;
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         min-height:100vh;
-        backdrop-filter: blur(10px);
+        backdrop-filter: blur(1px);
         position:relative;
-        min-width:100%;
+        max-width:90%;
+        margin-left:0px;
       }
 
       .container {
@@ -240,8 +248,32 @@ body {
         min-height:50%;
       }
 
-      .note {
+      .note-container {
 
         font-family:caprasimo;
+        background-color: red;
       }
+
+      .note {
+        
+        color:#fff;
+        
+      }
+
+      .delete-button {
+        background-color: #610F7F; /* Rosu */
+        color: #ffffff; /* Alb */
+        border: none;
+        padding:3px;
+        border-radius: 10px;
+        cursor: pointer;
+        margin-left:85%;
+      }
+
+      .noteText {
+        margin-bottom: px;
+        max-width:37%;
+      }
+
+      
   }
