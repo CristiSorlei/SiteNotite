@@ -5,6 +5,7 @@
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="img.jpg">
   <link rel="stylesheet" href="styles.css">
   <title>Aplicație de notițe</title>
   
@@ -16,17 +17,17 @@
 
 <body>
 
-  <div class="titluDiv"><h1 class="Titlu">Aplicație de notițe</h1></div>
+  <div class="titluDiv"><h1 class="Titlu">Notițe</h1></div>
   <div class="container">
     
     <div class="notes">
       <div class="note-form">
-        <input type="text" id="noteText" placeholder="Introduceți titlul notiței">
-        <select id="noteColor">
-          <option value="green">Verde</option>
-          <option value="yellow">Galben</option>
+        <input class="noteText" type="text" id="noteText" placeholder="Introduceți titlul notiței">
+        <select id="noteImportance">
+          <option value="important">Importante</option>
+          <option value="unimportant">Neimportante</option>
         </select>
-        <button class="adaugareNotita" id="addNoteButton" onclick="addNote()">Adaugă notiță</button>
+        <button class="adaugareNotita" id="addNoteButton" onclick="addNote()">Adauga</button>
       </div>
       <div class="note-list" id="noteList"></div>
     </div>
