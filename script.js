@@ -1,15 +1,22 @@
 let notes = JSON.parse(localStorage.getItem('notes')) || [];
 
-    function addNote() {
-      const noteText = document.getElementById('noteText').value;
-      const noteColor = document.getElementById('noteColor').value;
-      const note = { text: noteText, color: noteColor };
-      notes.push(note);
-      localStorage.setItem('notes', JSON.stringify(notes));
-      saveNoteToLocalStorage(note);
-      renderNotes();
-    }
+function addNote() {
+  const noteText = document.getElementById('noteText').value;
+  const noteImportance = document.getElementById('noteImportance').value;
+  const note = { text: noteText, importance: noteImportance, timestamp: Date.now() };
+  notes.push(note);
+  localStorage.setItem('notes', JSON.stringify(notes));
+  saveNoteToLocalStorage(note);
 
+  if (noteImportance === 'unimportant') {
+    alert("Această notă este neimportantă și va fi ștearsă automat după 24 de ore.");
+    setTimeout(() => {
+      deleteUnimportantNotes();
+    }, 60 * 60 * 1000); // Delete unimportant notes after 24 hours
+  }
+
+  renderNotes();
+}
     function saveNoteToLocalStorage(note) {
       const allNotes = JSON.parse(localStorage.getItem('allNotes')) || [];
       const formattedNote = { text: note.text.replace(/\n/g, ' '), color: note.color };
@@ -42,6 +49,7 @@ let notes = JSON.parse(localStorage.getItem('notes')) || [];
 
         const noteTextElement = document.createElement('div');
         noteTextElement.contentEditable = true;
+        
         noteTextElement.innerHTML = note.text.replace(/\n/g, '<br>');
 
         noteTextElement.addEventListener('input', () => {
@@ -67,3 +75,18 @@ let notes = JSON.parse(localStorage.getItem('notes')) || [];
     }
 
     renderNotes();
+
+    function deleteUnimportantNotes() {
+      const currentTime = Date.now();
+      const updatedNotes = notes.filter(note => {
+        if (note.importance === 'important' || currentTime - note.timestamp <= 24 * 60 * 60 * 1000) {
+          return true;
+        }
+        deleteNoteFromLocalStorage(notes.indexOf(note));
+        return false;
+      });
+    
+      localStorage.setItem('notes', JSON.stringify(updatedNotes));
+      notes = updatedNotes;
+      renderNotes();
+    }
